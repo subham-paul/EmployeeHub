@@ -1,60 +1,449 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# EmployeeHub - Mini Employee Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+EmployeeHub is a modern and professional Laravel 12 based Employee Management System designed to simplify employee record management, department handling, and secure authentication with role-based access control.
 
-## About Laravel
+The system provides a clean corporate dashboard experience with a responsive UI built using Bootstrap 5 and Laravel best practices. EmployeeHub helps administrators efficiently manage employees and departments while regular users can securely access employee information.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 1. Authentication System
 
-## Learning Laravel
+Secure authentication system with a professional and responsive user interface.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### Includes:
+- User Registration
+- Secure Login
+- Forgot Password
+- Logout Functionality
+- Password Hashing & Security
+- Professional Authentication Pages
+- Gradient-styled EmployeeHub branding
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 2. Role-Based Access Control (RBAC)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+The system uses role-based access control to separate permissions between administrators and regular users.
 
-### Premium Partners
+### Admin Permissions
+- Full Employee CRUD access
+- Department management
+- Excel export
+- PDF export
+- Dashboard access
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### User Permissions
+- View employee list
+- View employee details only
 
-## Contributing
+### Implementation
+- Custom `admin` middleware
+- `isAdmin()` method on the `User` model
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 3. Employee CRUD Module
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Complete employee management functionality.
 
-## Security Vulnerabilities
+### Features
+- Add Employee
+- View Employee
+- Edit Employee
+- Delete Employee
+- Delete Confirmation Modal
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
+## 4. Employee Data Management
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-"# EmployeeHub" 
+The system manages the following employee fields:
+
+| Field | Description |
+|------|-------------|
+| profile_photo | Employee profile image |
+| name | Employee full name |
+| email | Unique employee email |
+| phone | Contact number |
+| department_id | Assigned department |
+| designation | Employee designation |
+| salary | Employee salary |
+| joining_date | Employee joining date |
+| status | Active / Inactive |
+| created_at | Record creation timestamp |
+| updated_at | Record update timestamp |
+
+---
+
+## 5. Validation System
+
+Robust form validation implemented using Laravel Form Requests.
+
+### Validation Classes
+- `StoreEmployeeRequest`
+- `UpdateEmployeeRequest`
+
+### Validation Features
+- Required field validation
+- Email uniqueness validation
+- Image validation
+- File type restrictions
+- Update-safe unique email handling
+
+---
+
+## 6. Search & Filter
+
+Advanced employee filtering system.
+
+### Search By
+- Employee Name
+- Employee Email
+
+### Filter By
+- Department
+- Status
+
+---
+
+## 7. Pagination
+
+Efficient employee browsing with:
+- 10 employees per page
+- Clean pagination UI
+- Optimized listing performance
+
+---
+
+## 8. Profile Image Upload
+
+Employee profile photo upload system.
+
+### Features
+- Image upload support
+- Default placeholder image
+- Centered profile photo section in forms
+- Secure file storage handling
+
+---
+
+## 9. Data Export
+
+### Excel Export
+Implemented using **Maatwebsite/Laravel-Excel**
+
+#### Exported Columns
+- Employee Name
+- Email
+- Phone
+- Department
+- Designation
+- Salary
+- Joining Date
+- Status
+
+### PDF Export
+Implemented using **Barryvdh DomPDF**
+
+#### Exported Columns
+- Employee Name
+- Email
+- Phone
+- Department
+- Designation
+- Salary
+- Joining Date
+- Status
+
+### Additional Features
+- Indian Rupee Symbol (`₹`) support for salary
+- Professional export formatting
+- Proper column headings
+
+---
+
+## 10. User Profile Management
+
+Authenticated users can:
+- View profile information
+- Update profile details
+- Change password securely
+
+---
+
+## 11. Department Management
+
+Admin users can manage departments.
+
+### Features
+- Add Department
+- View Department List
+
+---
+
+## 12. Professional UI
+
+Modern corporate dashboard design using Bootstrap 5.
+
+### UI Components
+- Responsive Layout
+- Cards
+- Tables
+- Forms
+- Badges
+- Alerts
+- Modals
+- Rounded Corners
+- Box Shadows
+- White / Light Theme
+
+---
+
+## 13. Flash Messages
+
+User-friendly notification system using Bootstrap alerts.
+
+### Includes
+- Success Messages
+- Error Messages
+- Validation Alerts
+
+---
+
+## 14. Delete Confirmation
+
+Secure delete confirmation modal for critical actions like:
+- Employee deletion
+
+---
+
+## 15. Authentication Page Design
+
+Professional authentication pages featuring:
+- Gradient-styled EmployeeHub text
+- Modern login/register forms
+- Responsive layout
+- No image-based logo dependency
+
+---
+
+## 16. Dashboard
+
+Dynamic admin dashboard with real-time statistics.
+
+### Dashboard Includes
+- Total Employees Count
+- Active Employees Count
+- Inactive Employees Count
+- Total Departments Count
+- 5 Most Recent Employees
+- Employees sorted in descending order
+
+### Removed Section
+- Employee Statistics section removed for cleaner UI
+
+---
+
+## 17. Sidebar Navigation
+
+Sidebar contains:
+- Dashboard
+- Employees
+- Departments (Admin Only)
+
+### Removed Links
+- Roles
+- Settings
+
+---
+
+# Technical Stack
+
+## Backend
+- Laravel 12
+- PHP ^8.2
+
+## Database
+- MySQL
+
+## Frontend
+- Blade Template Engine
+- HTML5
+- CSS3
+
+## Styling
+- Bootstrap 5
+- Bootstrap Icons
+
+## Packages
+- Maatwebsite/Laravel-Excel
+- barryvdh/laravel-dompdf
+
+## Development Tools
+- Composer
+- Node.js
+- npm / yarn
+
+---
+
+# Setup Instructions
+
+Follow the steps below to set up the project on your local machine.
+
+---
+
+## 1. Prerequisites
+
+Make sure the following software is installed:
+
+- PHP ^8.2
+- Composer
+- Node.js & npm (or yarn)
+- MySQL
+- Git
+
+---
+
+## 2. Clone the Repository
+
+```bash
+git clone https://github.com/subham-paul/EmployeeHub.git
+cd employeehub
+````
+
+---
+
+## 3. Install PHP Dependencies
+
+```bash
+composer install
+```
+
+---
+
+## 4. Environment Configuration
+
+Copy the environment file:
+
+```bash
+cp .env.example .env
+```
+
+Open the `.env` file and configure your database credentials:
+
+```env
+DB_CONNECTION=mysql
+DB_DATABASE=employee_management_system
+DB_USERNAME=root
+DB_PASSWORD=your_password
+```
+
+Generate the application key:
+
+```bash
+php artisan key:generate
+```
+
+---
+
+## 5. Database Setup
+
+Create a new MySQL database named:
+
+```text
+employee_management_system
+```
+
+You can create it using phpMyAdmin, MySQL Workbench, or terminal.
+
+---
+
+## 6. Run Migrations and Seeders
+
+Run the following command:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+This command will:
+
+* Create all database tables
+* Seed default data
+* Automatically create the default admin user
+
+---
+
+## 7. Install Frontend Dependencies & Build Assets
+
+Install Node.js dependencies:
+
+```bash
+npm install
+```
+
+Run the Vite development server:
+
+```bash
+npm run dev
+```
+
+For production build:
+
+```bash
+npm run build
+```
+
+---
+
+## 8. Start the Development Server
+
+Run the Laravel development server:
+
+```bash
+php artisan serve
+```
+
+Open the application in your browser:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 9. Create Storage Symlink
+
+Run the following command:
+
+```bash
+php artisan storage:link
+```
+
+### Purpose
+
+This command creates a symbolic link between the `storage` and `public` directories so uploaded employee profile photos can be publicly accessible in the browser.
+
+---
+
+# Admin Access
+
+The database seeder automatically creates a default administrator account.
+
+## Default Admin Credentials
+
+| Email                                         | Password |
+| --------------------------------------------- | -------- |
+| [admin@example.com](mailto:admin@example.com) | password |
+
+---
+
+
+# License
+
+The Laravel framework is open-sourced software licensed under the MIT License.
+
+
+
