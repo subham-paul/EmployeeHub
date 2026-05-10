@@ -53,7 +53,6 @@
                                         <th scope="col">#</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Employees</th>
-                                        <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -62,11 +61,6 @@
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $department->name }}</td>
                                             <td>{{ $department->employees->count() }}</td> {{-- Assuming a 'employees' relationship in Department model --}}
-                                            <td>
-                                                {{-- Add action buttons here (e.g., Edit, Delete) --}}
-                                                <button class="btn btn-sm btn-warning text-white" title="Edit"><i class="bi bi-pencil"></i></button>
-                                                <button class="btn btn-sm btn-danger" title="Delete"><i class="bi bi-trash"></i></button>
-                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
